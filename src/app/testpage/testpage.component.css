@@ -1,0 +1,29 @@
+.test_content_header {
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  padding-top: 2ch;
+}
+
+.test_content {
+  display: flex;
+  padding: 5ch;
+  font-size: 18px;
+}
+
+.test_content_description {
+  width: 70ch;
+  text-align: justify;
+}
+
+.test_content_history {
+  width: 150ch;
+  display: block;
+  text-align: center;
+}
+
+.button-panel {
+  display: flex;
+  align-items: center;
+}

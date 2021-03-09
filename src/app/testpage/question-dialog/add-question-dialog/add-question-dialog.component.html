@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>Create question</h2>
+<mat-dialog-content class="mat-typography">
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Input question</mat-label>
+      <textarea matInput [(ngModel)]="data.question" [ngModelOptions]="{standalone: true}" placeholder="What do you..."></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Leave a prompt</mat-label>
+      <textarea matInput [(ngModel)]="data.prompt" [ngModelOptions]="{standalone: true}" placeholder="It`s was..."></textarea>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="addQuestion()" [mat-dialog-close]="true" cdkFocusInitial>Add</button>
+</mat-dialog-actions>

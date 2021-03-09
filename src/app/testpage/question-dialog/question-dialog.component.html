@@ -1,0 +1,66 @@
+<div class="header_text">
+  <h2>Список вопросов</h2>
+</div>
+
+<div class="button-panel">
+  <button mat-icon-button aria-label="Редактировать" (click)="openDialog()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade"
+       *ngIf="isLoadingResults || isRateLimitReached">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
+      Loading...
+    </div>
+  </div>
+
+
+
+  <div class="example-table-container">
+    <table mat-table [dataSource]="data" matSort matSortActive="created" matSortDisableClear matSortDirection="asc">
+      <!-- Number Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>№</th>
+        <td mat-cell *matCellDef="let row" >{{row._id}}</td>
+      </ng-container>
+
+      <!-- Title Column -->
+      <ng-container matColumnDef="question">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>Question</th>
+        <td mat-cell *matCellDef="let row">{{row.question}}</td>
+      </ng-container>
+
+      <!-- State Column -->
+      <ng-container matColumnDef="prompt">
+        <th mat-header-cell *matHeaderCellDef>Prompt</th>
+        <td mat-cell *matCellDef="let row">{{row.prompt}}</td>
+      </ng-container>
+
+      <!-- Created Column -->
+      <ng-container matColumnDef="created">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>Created</th>
+        <td mat-cell *matCellDef="let row">{{row.created | date:"dd.MM.yyyy HH:mm"}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button aria-label="Удалить" (click)="deleteQuestion(row.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button aria-label="Изменить" (click)="deleteQuestion(row.id)">
+            <mat-icon>update</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+  <mat-paginator [length]="resultsLength" [pageSizeOptions]="sizeOption" [pageSize]="2"></mat-paginator>
+</div>
