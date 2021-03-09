@@ -1,8 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {QuestionDialogComponent} from './question-dialog/question-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
-import {HomeComponent} from '../home/home.component';
-import {QuestionsService} from '../service/questions.service';
+import {QuestionComponent} from '../question/question.component';
 
 @Component({
   selector: 'app-testpage',
@@ -14,7 +12,7 @@ export class TestpageComponent implements AfterViewInit {
   constructor(public dialog: MatDialog) { }
 
   openDialog(): void {
-   this.dialog.open(QuestionDialogComponent, {
+   this.dialog.open(QuestionComponent, {
       width: '750px',
       data: []
     });

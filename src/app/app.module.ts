@@ -12,7 +12,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatInputModule} from '@angular/material/input';
 import { TestpageComponent } from './testpage/testpage.component';
 import { UserpanelComponent } from './userpanel/userpanel.component';
-import { QuestionDialogComponent } from './testpage/question-dialog/question-dialog.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
@@ -25,7 +24,8 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
-import { AddQuestionDialogComponent } from './testpage/question-dialog/add-question-dialog/add-question-dialog.component';
+import { AddQuestionDialogComponent } from './question/add-question-dialog/add-question-dialog.component';
+import { QuestionComponent } from './question/question.component';
 
 // @ts-ignore
 @NgModule({
@@ -35,8 +35,8 @@ import { AddQuestionDialogComponent } from './testpage/question-dialog/add-quest
     HomeComponent,
     TestpageComponent,
     UserpanelComponent,
-    QuestionDialogComponent,
-    AddQuestionDialogComponent
+    AddQuestionDialogComponent,
+    QuestionComponent
   ],
   imports: [
     AppRoutingModule,

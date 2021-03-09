@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {QuestionsService} from '../../../service/questions.service';
-import {Question} from '../../../model/question';
-import {QuestionCreate} from '../../../model/question-create';
+import {QuestionsService} from '../../service/questions.service';
+import {Question} from '../../model/question';
+import {QuestionCreate} from '../../model/question-create';
 import {MatDialogRef} from '@angular/material/dialog';
 
 @Component({

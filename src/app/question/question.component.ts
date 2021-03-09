@@ -3,19 +3,18 @@ import {merge} from 'rxjs';
 import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
-import {QuestionsService} from '../../service/questions.service';
-import {Question} from '../../model/question';
-import {HomeComponent} from '../../home/home.component';
 import {MatDialog} from '@angular/material/dialog';
+import {Question} from '../model/question';
+import {PageParams} from '../model/page-params';
+import {QuestionsService} from '../service/questions.service';
 import {AddQuestionDialogComponent} from './add-question-dialog/add-question-dialog.component';
-import {PageParams} from '../../model/page-params';
 
 @Component({
-  selector: 'app-question-dialog',
-  templateUrl: './question-dialog.component.html',
-  styleUrls: ['./question-dialog.component.css']
+  selector: 'app-question',
+  templateUrl: './question.component.html',
+  styleUrls: ['./question.component.css']
 })
-export class QuestionDialogComponent implements AfterViewInit {
+export class QuestionComponent implements AfterViewInit {
   sizeOption: number[] = [1, 5, 10, 30];
   displayedColumns: string[] = ['id', 'question', 'prompt', 'created', 'actions'];
   data: Question[] = [];
@@ -77,7 +76,7 @@ export class QuestionDialogComponent implements AfterViewInit {
           return [];
         })
       ).subscribe(data => {
-        this.data = this.getIndex(data);
+      this.data = this.getIndex(data);
     });
   }
 
