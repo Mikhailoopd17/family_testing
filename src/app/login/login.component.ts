@@ -23,7 +23,9 @@ export class LoginComponent implements OnInit {
       .pipe()
       .subscribe(res => {
         if (res) {
-          router.navigateByUrl('/room');
+          router.navigateByUrl('/test');
+        } else {
+          router.navigateByUrl('/login');
         }
       });
   }

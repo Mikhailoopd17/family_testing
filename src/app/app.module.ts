@@ -8,7 +8,7 @@ import {AppRoutingModule} from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {MatInputModule} from '@angular/material/input';
 import { TestpageComponent } from './testpage/testpage.component';
 import { UserpanelComponent } from './userpanel/userpanel.component';
@@ -26,6 +26,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { AddQuestionDialogComponent } from './question/add-question-dialog/add-question-dialog.component';
 import { QuestionComponent } from './question/question.component';
+import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
+import {AuthInterceptorService} from './service/auth-interceptor.service';
 
 // @ts-ignore
 @NgModule({
@@ -36,7 +38,8 @@ import { QuestionComponent } from './question/question.component';
     TestpageComponent,
     UserpanelComponent,
     AddQuestionDialogComponent,
-    QuestionComponent
+    QuestionComponent,
+    ErrorDialogComponent
   ],
   imports: [
     AppRoutingModule,
@@ -60,7 +63,13 @@ import { QuestionComponent } from './question/question.component';
     MatPaginatorModule,
     MatSortModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
