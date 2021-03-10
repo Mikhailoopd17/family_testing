@@ -17,17 +17,14 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private authService: AuthServiceService
-  ) {
-    authService.getCurrentUser()
-      .pipe()
-      .subscribe(res => {
-        if (res) {
-          router.navigateByUrl('/test');
-        } else {
-          router.navigateByUrl('/login');
-        }
-      });
+    private authService: AuthServiceService) {
+      authService.getCurrentUser()
+        .pipe()
+        .subscribe(res => {
+          if (res) {
+            router.navigateByUrl('/test');
+          }
+        });
   }
 
   ngOnInit(): void {
